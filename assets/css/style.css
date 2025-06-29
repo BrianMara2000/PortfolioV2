@@ -14,7 +14,7 @@
   --border-color: #9A9494;
   --socials-border-color: #B19CFE;
   --skills-gradient-color: linear-gradient(141deg, #2D3C57 0%, #151C28 78%);
-  --project-gradient-color: linear-gradient(0deg, #445581 100%, #0E121B 100%);
+  --project-gradient-color: linear-gradient(180deg, #445581 0%, #0E121B 100%);
   --location-gradient-color: linear-gradient(
   to right, 
   #2C4781 0%, 
@@ -364,64 +364,155 @@ grid-row-gap: 2rem;
 .project-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
   gap: 3rem;
-  background-color: white;
-}
-
-.project-container h2 {
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-semi-bold);
-  color: var(--primary-color);
+  width: 100%;
+  height: 100vh;
+  padding: 2rem 1rem;
 }
 
 .project-card-container {
-  width: 60%;
-  height: 70vh;
-  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow-y: auto;
+  /* scroll-snap-type: y mandatory; */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: gray;
+  padding-bottom: 4rem;
 }
 
-.software-title {
+.project-card-container::-webkit-scrollbar {
+  display: none;
+}
+
+.section {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.software-title,
+.hardware-title {
   font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
+  background: var(--body-color);
+  padding: 1rem 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.software-container {
+.software-container,
+.hardware-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
-  height: 90%;
-  background-color: var(--body-color);
+  gap: 3rem;
 }
 
 .project-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  scroll-snap-align: start;
+  position: sticky;
+  top: 4rem;
+  background: var(--card-color);
   padding: 2rem;
   border-radius: 20px;
-  width: 400px;
-  background: var(--card-color)
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(60, 58, 58, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 500px;
+  max-width: 700px;
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
 .image-holder {
   width: 100%;
-  height: 200px;
   border-radius: 20px;
   overflow: hidden;
+  background: var(--project-gradient-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
+.image-holder img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
 
+.project-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  
+}
 
+.tags span {
+  border: 1.5px solid var(--primary-color);
+ border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(165, 113, 255, 0.08);
+  background: rgba(165, 113, 255, 0.05);
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+
+/* Buttons */
+.redirect-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.redirect-buttons .code-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--primary-color);
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.redirect-buttons .live-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.redirect-buttons .code-btn:hover {
+  background-color: var(--primary-color-hover, var(--primary-color));
+}
+
+.redirect-buttons .live-btn:hover {
+  background-color: var(--primary-color-hover, transparent);
+  border: 1.5px solid var(--primary-color);
+
+}
