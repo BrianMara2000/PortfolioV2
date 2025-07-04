@@ -540,7 +540,7 @@ grid-row-gap: 2rem;
 .contact-card {
   display: flex;
   width: 60%;
-  height: 60%;
+  height: 50%;
   flex-direction: column;
   gap: 2rem;
   border-radius: 20px;
@@ -661,6 +661,7 @@ text-decoration: none;
   gap: 0.5rem;
   cursor: pointer;
   transition: 0.3s;
+  font-family: var(--body-font);
 }
 
 .contact-form button:hover {
