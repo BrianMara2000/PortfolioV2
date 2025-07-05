@@ -651,6 +651,75 @@
           </div>
         </div>
       </section>
+
+      <!-- ================ Contact ============== -->
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2025 Brian Mara. All rights reserved.</p>
+          <div class="footer-icons">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <iconify-icon
+                icon="mdi:github"
+                width="24"
+                height="24"
+              ></iconify-icon>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <iconify-icon
+                icon="mdi:linkedin"
+                width="24"
+                height="24"
+              ></iconify-icon>
+            </a>
+            <a href="mailto:brianmara123@gmail.com" aria-label="Email">
+              <iconify-icon
+                icon="mdi:email"
+                width="24"
+                height="24"
+              ></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <!-- ================ Navbar ============== -->
+
+      <nav class="bottom-navbar">
+        <a href="#home" class="nav-link active" title="Home">
+          <iconify-icon icon="mdi:home-outline"></iconify-icon>
+          <span class="tooltip">Home</span>
+        </a>
+        <a href="#about" class="nav-link" title="About">
+          <iconify-icon icon="mdi:account-circle-outline"></iconify-icon>
+          <span class="tooltip">About</span>
+        </a>
+        <a href="#project" class="nav-link" title="Projects">
+          <iconify-icon icon="mdi:code-tags"></iconify-icon>
+          <span class="tooltip">Projects</span>
+        </a>
+        <a href="#contact" class="nav-link" title="Contact">
+          <iconify-icon icon="mdi:email-outline"></iconify-icon>
+          <span class="tooltip">Contact</span>
+        </a>
+      </nav>
     </main>
+
+    <script>
+      const links = document.querySelectorAll(".nav-link");
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          links.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>
