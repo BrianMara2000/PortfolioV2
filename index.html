@@ -605,7 +605,7 @@
       <!-- ================ Contact ============== -->
       <section id="contact">
         <div class="contact-container">
-          <h2>Let's Work Together</h2>
+          <h2>Let's Work Together!</h2>
           <div class="contact-card">
             <div class="contact-info">
               <h3>Find me ↴</h3>
@@ -693,33 +693,138 @@
       <!-- ================ Navbar ============== -->
 
       <nav class="bottom-navbar">
-        <a href="#home" class="nav-link active" title="Home">
-          <iconify-icon icon="mdi:home-outline"></iconify-icon>
+        <a
+          href="#home"
+          data-default-icon="majesticons:home-line"
+          data-active-icon="majesticons:home"
+          class="nav-link active"
+          title="Home"
+        >
+          <iconify-icon
+            icon="majesticons:home-line"
+            width="20"
+            height="20"
+            style="color: #fff"
+          ></iconify-icon>
+          <!-- <iconify-icon icon="majesticons:home" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Home</span>
         </a>
-        <a href="#about" class="nav-link" title="About">
-          <iconify-icon icon="mdi:account-circle-outline"></iconify-icon>
+        <a
+          href="#about"
+          data-default-icon="material-symbols:person-outline-rounded"
+          data-active-icon="material-symbols:person-rounded"
+          class="nav-link"
+          title="About"
+        >
+          <iconify-icon
+            icon="material-symbols:person-outline-rounded"
+            width="20"
+            height="20"
+            style="color: #fff"
+          ></iconify-icon>
+          <!-- <iconify-icon icon="material-symbols:person-rounded" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">About</span>
         </a>
-        <a href="#project" class="nav-link" title="Projects">
-          <iconify-icon icon="mdi:code-tags"></iconify-icon>
+        <a
+          href="#services"
+          data-default-icon="hugeicons:gears"
+          data-active-icon="fa6-solid:gears"
+          class="nav-link"
+          title="Services"
+        >
+          <iconify-icon
+            icon="hugeicons:gears"
+            width="20"
+            height="20"
+            style="color: #fff"
+          ></iconify-icon>
+          <!-- <iconify-icon icon="fa6-solid:gears" width="31.20" height="20"  style="color: #fff"></iconify-icon> -->
+          <span class="tooltip">Services</span>
+        </a>
+        <a
+          href="#techstack"
+          data-default-icon="fluent:toolbox-24-regular"
+          data-active-icon="fluent:toolbox-24-filled"
+          class="nav-link"
+          title="Skills"
+        >
+          <iconify-icon
+            id="icon"
+            icon="fluent:toolbox-24-regular"
+            width="20"
+            height="20"
+            style="color: #fff"
+          ></iconify-icon>
+          <!-- <iconify-icon
+           id="icon" icon="fluent:toolbox-24-filled" width="20" height="20"  style="color: #fff"></iconify-icon> -->
+          <span class="tooltip">Skills</span>
+        </a>
+        <a
+          href="#project"
+          data-default-icon="tabler:folder-code"
+          data-active-icon="material-symbols:folder-code-rounded"
+          class="nav-link"
+          title="Projects"
+        >
+          <iconify-icon
+            icon="tabler:folder-code"
+            width="20"
+            height="20"
+            style="color: #fff"
+          ></iconify-icon>
+          <!-- <iconify-icon icon="material-symbols:folder-code-rounded" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Projects</span>
         </a>
-        <a href="#contact" class="nav-link" title="Contact">
-          <iconify-icon icon="mdi:email-outline"></iconify-icon>
+        <a
+          href="#contact"
+          data-default-icon="mynaui:chat"
+          data-active-icon="ri:chat-3-fill"
+          class="nav-link"
+          title="Contact"
+        >
+          <iconify-icon
+            icon="mynaui:chat"
+            width="20"
+            height="20"
+            style="color: #fff"
+          ></iconify-icon>
+          <!-- <iconify-icon icon="ri:chat-3-fill" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Contact</span>
         </a>
       </nav>
     </main>
 
     <script>
-      const links = document.querySelectorAll(".nav-link");
-      links.forEach((link) => {
-        link.addEventListener("click", () => {
-          links.forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      function updateActiveNav() {
+        let currentSection = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute("id");
+          }
         });
-      });
+
+        navLinks.forEach((link) => {
+          const icon = link.querySelector("iconify-icon");
+          const target = link.getAttribute("href").substring(1); // get id without "#"
+
+          if (target === currentSection) {
+            link.classList.add("active");
+            icon.setAttribute("icon", link.dataset.activeIcon);
+          } else {
+            link.classList.remove("active");
+            icon.setAttribute("icon", link.dataset.defaultIcon);
+          }
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveNav);
     </script>
   </body>
 </html>
