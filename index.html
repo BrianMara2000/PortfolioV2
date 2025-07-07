@@ -20,9 +20,9 @@
         ></iconify-icon>
       </div>
     </header>
-    <main>
+    <main class="scroll-container">
       <!-- ================ Home ============== -->
-      <section id="home">
+      <section class="snap-section" id="home">
         <div class="home__container">
           <p>👋Hey, I'm</p>
           <h2>Brian Mara</h2>
@@ -72,7 +72,7 @@
       </section>
 
       <!-- ================ About ============== -->
-      <section id="about">
+      <section class="snap-section" id="about">
         <div class="about-container">
           <h2>A Bit About Me</h2>
           <div class="about-card">
@@ -95,7 +95,7 @@
       </section>
 
       <!-- ================ Services ============== -->
-      <section id="services">
+      <section class="snap-section" id="services">
         <div class="services-container">
           <h2>What I do?</h2>
           <div class="card-container">
@@ -145,9 +145,9 @@
       </section>
 
       <!-- ================ Tech Stack ============== -->
-      <section id="techstack">
+      <section class="snap-section" id="techstack">
         <div class="techstack-container">
-          <h2>Technologies I work with</h2>
+          <h2>Technologies I Work With</h2>
           <div class="skill-container">
             <div class="skill-card">
               <iconify-icon
@@ -287,7 +287,7 @@
       </section>
 
       <!-- ================ Projects ============== -->
-      <section id="project">
+      <section class="snap-section" id="project">
         <div class="project-container">
           <h2>Featured Project</h2>
 
@@ -603,7 +603,7 @@
       </section>
 
       <!-- ================ Contact ============== -->
-      <section id="contact">
+      <section class="snap-section" id="contact">
         <div class="contact-container">
           <h2>Let's Work Together!</h2>
           <div class="contact-card">
@@ -649,46 +649,45 @@
               </button>
             </form>
           </div>
+          <!-- ================ Footer ============== -->
+          <footer class="footer">
+            <div class="footer-content">
+              <p>&copy; 2025 Brian Mara. All rights reserved.</p>
+              <div class="footer-icons">
+                <a
+                  href="https://github.com/yourusername"
+                  target="_blank"
+                  aria-label="GitHub"
+                >
+                  <iconify-icon
+                    icon="mdi:github"
+                    width="24"
+                    height="24"
+                  ></iconify-icon>
+                </a>
+                <a
+                  href="https://linkedin.com/in/yourusername"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                >
+                  <iconify-icon
+                    icon="mdi:linkedin"
+                    width="24"
+                    height="24"
+                  ></iconify-icon>
+                </a>
+                <a href="mailto:brianmara123@gmail.com" aria-label="Email">
+                  <iconify-icon
+                    icon="mdi:email"
+                    width="24"
+                    height="24"
+                  ></iconify-icon>
+                </a>
+              </div>
+            </div>
+          </footer>
         </div>
       </section>
-
-      <!-- ================ Contact ============== -->
-      <footer class="footer">
-        <div class="footer-content">
-          <p>&copy; 2025 Brian Mara. All rights reserved.</p>
-          <div class="footer-icons">
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <iconify-icon
-                icon="mdi:github"
-                width="24"
-                height="24"
-              ></iconify-icon>
-            </a>
-            <a
-              href="https://linkedin.com/in/yourusername"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <iconify-icon
-                icon="mdi:linkedin"
-                width="24"
-                height="24"
-              ></iconify-icon>
-            </a>
-            <a href="mailto:brianmara123@gmail.com" aria-label="Email">
-              <iconify-icon
-                icon="mdi:email"
-                width="24"
-                height="24"
-              ></iconify-icon>
-            </a>
-          </div>
-        </div>
-      </footer>
 
       <!-- ================ Navbar ============== -->
 
@@ -798,33 +797,32 @@
       const sections = document.querySelectorAll("section");
       const navLinks = document.querySelectorAll(".nav-link");
 
-      function updateActiveNav() {
-        let currentSection = "";
+      const scrollContainer = document.querySelector(".scroll-container");
+
+      scrollContainer.addEventListener("scroll", () => {
+        let current = "";
 
         sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 100;
-          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
 
-          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute("id");
+          // console.log("sectionTop:", sectionTop);
+          // console.log("sectionHeight:", sectionHeight);
+          // console.log("Scroll Container ScrollY:", scrollContainer.scrollY);
+
+          if (scrollContainer.scrollTop >= sectionTop - sectionHeight / 2) {
+            current = section.getAttribute("id");
+            console.log("Current Section:", current);
           }
         });
 
         navLinks.forEach((link) => {
-          const icon = link.querySelector("iconify-icon");
-          const target = link.getAttribute("href").substring(1); // get id without "#"
-
-          if (target === currentSection) {
+          link.classList.remove("active");
+          if (link.getAttribute("href").includes(current)) {
             link.classList.add("active");
-            icon.setAttribute("icon", link.dataset.activeIcon);
-          } else {
-            link.classList.remove("active");
-            icon.setAttribute("icon", link.dataset.defaultIcon);
           }
         });
-      }
-
-      window.addEventListener("scroll", updateActiveNav);
+      });
     </script>
   </body>
 </html>
