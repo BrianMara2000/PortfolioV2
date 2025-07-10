@@ -114,8 +114,8 @@
               <iconify-icon
                 class="icon"
                 icon="mdi:web-check"
-                width="20"
-                height="40"
+                width="35"
+                height="35"
               ></iconify-icon>
               <h2>Web Development</h2>
               <p>
@@ -128,8 +128,8 @@
               <iconify-icon
                 class="icon"
                 icon="iconoir:design-nib-solid"
-                width="40"
-                height="40"
+                width="35"
+                height="35"
               ></iconify-icon>
               <h2>UX/UI Design</h2>
               <p>
@@ -142,8 +142,8 @@
               <iconify-icon
                 class="icon"
                 icon="famicons:hardware-chip-sharp"
-                width="40"
-                height="40"
+                width="35"
+                height="35"
               ></iconify-icon>
               <h2>Embedded System</h2>
               <p>
@@ -763,14 +763,21 @@
 
           if (scrollContainer.scrollTop >= sectionTop - sectionHeight / 2) {
             current = section.getAttribute("id");
-            console.log("Current Section:", current);
+            // console.log("Current Section:", current);
           }
         });
 
         navLinks.forEach((link) => {
-          link.classList.remove("active");
+          const icon = link.querySelector("iconify-icon");
+          const defaultIcon = link.getAttribute("data-default-icon");
+          const activeIcon = link.getAttribute("data-active-icon");
+
           if (link.getAttribute("href").includes(current)) {
             link.classList.add("active");
+            if (icon) icon.setAttribute("icon", activeIcon);
+          } else {
+            link.classList.remove("active");
+            if (icon) icon.setAttribute("icon", defaultIcon);
           }
         });
       });

@@ -355,8 +355,9 @@ letter-spacing: 0.1rem;   */
 
 .card-container {
   display: flex;
-  flex-direction: column;
-  max-width: 100%;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
@@ -817,13 +818,10 @@ text-decoration: none;
     transition: 0.3s ease;
   }
 
-  .nav-link:hover,
   .nav-link.active {
     /* color: #b07cf0; */
     transform: scale(1.1);border-radius: 5px;
     background: rgba(255, 255, 255, 0.1);;
-
-
   }
 
   .nav-link iconify-icon {
@@ -845,10 +843,7 @@ text-decoration: none;
     transition: 0.3s ease;
   }
 
-  .nav-link:hover .tooltip {
-    opacity: 1;
-    transform: translateY(4px);
-  }
+
 
 /* ============ Responsive Design ============ */
 /* Breakpoints */
@@ -865,6 +860,53 @@ text-decoration: none;
   styles for larger desktops
 } */
 
+@media (min-width: 425px) {
+  .header__container {
+    width: 80%;
+    padding: 0.5rem 0.5rem;
+  }
+  .about-card {
+    padding: 5rem 1.5rem 1rem 1.5rem;
+    border-radius: 18px;
+  }
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  .about-content {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  .techstack-container h2,
+  .about-container h2,
+  .services-container h2,
+  .contact-container h2 {
+    font-size: 1.1rem;
+  }
+
+  .skill-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .skill-card {
+    padding: 1rem;
+    border-radius: 12px;
+    width: 90px;
+    height: 90px;
+    font-size: 1rem;
+  }
+
+  .contact-card {
+    width: 90%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .bottom-navbar {
+    width: 60%;
+  }
+
+}
+
 @media (min-width: 768px) {
   .header__container {
     width: 80%;
@@ -875,8 +917,8 @@ text-decoration: none;
     border-radius: 18px;
   }
   .profile-avatar {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
   }
   .about-content {
     padding: 1rem;
@@ -900,8 +942,9 @@ text-decoration: none;
     height: 90px;
     font-size: 1rem;
   }
+
   .contact-card {
-    width: 100%;
+    width: 90%;
     padding: 1rem;
     flex-direction: row;
     gap: 1rem;
@@ -920,6 +963,86 @@ text-decoration: none;
 
 }
 
+@media (min-width: 1024px) {
+  .header__container {
+    width: 60%;
+  }
+  .about-card {
+    padding: 4rem 2rem 2rem 2rem;
+    border-radius: 20px;
+  }
+  /* .profile-avatar {
+    width: 150px;
+    height: 150px;
+  } */
+  .about-content {
+    padding: 1.5rem;
+    font-size: 1.05rem;
+  }
 
+  .card-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 60%;
+    /* align-items: start; */
+  }
 
+  .techstack-container h2,
+  .about-container h2,
+  .services-container h2,
+  .contact-container h2 {
+    font-size: 1.3rem;
+  }
 
+  .skill-container {
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 1.5rem;
+  }
+  .skill-card {
+    padding: 1rem;
+    border-radius: 12px;
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+
+  .skill-card iconify-icon {
+    font-size: 2rem;
+  }
+
+  .skill-card p {
+    font-size: 0.8rem;
+  }
+
+  .project-card {
+    padding: 2rem;
+  }
+
+  .project-card .image-holder {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .contact-card {
+    width: 60%;
+    padding: 1rem;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+
+  .bottom-navbar {
+    width: 25%;
+  }
+
+  .nav-link:hover .tooltip {
+  opacity: 1;
+  transform: translateY(4px);
+  }
+/* On desktop */
+}
