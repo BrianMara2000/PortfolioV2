@@ -131,10 +131,15 @@ header {
   gap: 0.5rem;
 }
 
+.role {
+  color: var(--primary-color);
+  font-size: var(--h1-font-size);
+
+}
+
 .typed__text {
   font-size: var(--h1-font-size);
   font-weight: var(--font-semi-bold);
-  color: var(--primary-color)
 }
 
 .location__container {
@@ -211,17 +216,48 @@ header {
   justify-content: center;
   align-items: center;;
   text-decoration: none;
-  color: var(--primary-color);
+  color: white;
   padding: 0.80rem;
   border-radius: 50%;
+  outline: 1px solid var(--socials-border-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  border: 1px solid var(--socials-border-color);
+  transition-property: outline-offset, outline-color, background-color;
+  transition-duration: 0.25s;
   cursor: pointer;
 }
 
-.social__links iconify-icon {
+.social__links a:hover {
+  outline-offset: 4px;
+}
+
+.social__links .linkedin:hover {
+  background-color: #0a66c2;
+  outline-color: #0a66c2;
+}
+
+.social__links .facebook:hover {
+  background-color: #2610ee;
+  outline-color: #2610ee;
+}
+
+.social__links .github:hover:hover {
+  background-color: #3f3e3e;
+  outline-color: #3f3e3e;
+}
+
+.social__links:hover iconify-icon {
   font-size: 0.5rem;
   transition: color 0.3s ease;
+  animation: shake 0.25s;
+}
+
+@keyframes shake {
+  10% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
 }
 
 
@@ -500,6 +536,7 @@ grid-row-gap: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  scroll-snap-type: y mandatory;
 }
 
 .project-card {
@@ -672,6 +709,7 @@ grid-row-gap: 1.5rem;
   word-wrap: break-word;
   word-break: break-word; 
   overflow-wrap: break-word;
+  max-width: 300px;
   /* flex-wrap: wrap;   */
 }
 .contact-info-item iconify-icon {
@@ -794,6 +832,7 @@ text-decoration: none;
     bottom: 1.2rem;
     left: 50%;
     width: 90%;
+    max-width: 330px;
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -901,9 +940,6 @@ text-decoration: none;
     gap: 1rem;
   }
 
-  .bottom-navbar {
-    width: 60%;
-  }
 
 }
 
@@ -955,10 +991,6 @@ text-decoration: none;
   }
   .footer {
     padding: 2rem 0.5rem;
-  }
-
-  .bottom-navbar {
-    width: 40%;
   }
 
 }
@@ -1027,7 +1059,7 @@ text-decoration: none;
 
   .contact-card {
     width: 60%;
-    padding: 1rem;
+    padding: 0;
     flex-direction: row;
     gap: 1rem;
   }
@@ -1036,9 +1068,6 @@ text-decoration: none;
     width: 100%;
   }
 
-  .bottom-navbar {
-    width: 25%;
-  }
 
   .nav-link:hover .tooltip {
   opacity: 1;
