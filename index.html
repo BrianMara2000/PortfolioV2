@@ -801,6 +801,25 @@
         backSpeed: 80,
         backDelay: 2000,
       });
+
+      //Glowing effect when hover
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          card.style.background = `radial-gradient(
+      600px circle at ${x}px ${y}px,
+      rgba(165, 113, 255, 0.2),
+      transparent 60%
+    )`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.background = "var(--card-color)";
+        });
+      });
     </script>
   </body>
 </html>
