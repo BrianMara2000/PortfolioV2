@@ -71,6 +71,78 @@ body {
   scroll-padding-bottom: 50vh;
 }
 
+/* ============= Page Loader ============== */
+/* Full-screen loader overlay */
+#page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: var(--body-color); /* or any background color you prefer */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+/* From Uiverse.io by raunak_2064 */ 
+/* mini loader component */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.75em; /* 60px */
+}
+
+.loader-dot {
+  height: 0.8125em; /* 13px */
+  width: 1.25em; /* 20px */
+  margin-right: 0.625em; /* 10px */
+  border-radius: 0.625em; /* 10px */
+  background-color: #721a8f;
+  animation: loaderpulse 1.5s infinite ease-in-out;
+}
+
+.loader-dot:last-child {
+  margin-right: 0;
+}
+
+.loader-dot:nth-child(1) {
+  animation-delay: -0.1875s; /* -0.3s */
+}
+
+.loader-dot:nth-child(2) {
+  animation-delay: -0.0625s; /* -0.1s */
+}
+
+.loader-dot:nth-child(3) {
+  animation-delay: 0.0625s; /* 0.1s */
+}
+
+@keyframes loaderpulse {
+  0% {
+    transform: scale(0.8);
+    background-color: #d7b3fc;
+    box-shadow: 0 0 0 0 rgb(196 178 252 / 70%);
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #70198e;
+    box-shadow: 0 0 0 0.625em rgba(178, 212, 252, 0); /* 10px */
+  }
+
+  100% {
+    transform: scale(0.8);
+    background-color: #d7b3fc;
+    box-shadow: 0 0 0 0 rgb(196 178 252 / 70%);
+  }
+}
+/* mini loader component end */
+
+
 
 
 /* ============= Header ============== */
@@ -123,6 +195,22 @@ header {
 .home__container p {
   font-size: var(--normal-font-size);
   font-weight: var(--font-regular);
+}
+
+.wave-hand {
+  display: inline-block;
+  animation: wave 1.5s infinite;
+  transform-origin: 70% 70%; /* adjust for natural rotation */
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(14deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(14deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
 }
 
 .home__container h2 {
@@ -539,6 +627,8 @@ grid-row-gap: 1.5rem;
 }
 
 .project-card {
+    scroll-snap-align: start;
+
   position: sticky;
   top: 4rem;
   background: var(--card-color);
@@ -564,11 +654,9 @@ grid-row-gap: 1.5rem;
   transform: scale(0.98);
 }
 
-
-
 .image-holder {
   width: 100%;
-  border-radius: 10px;
+  border-radius: inherit;
   overflow: hidden;
   background: var(--project-gradient-color);
   display: flex;

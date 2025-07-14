@@ -3,13 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
 
     <title>Brian Mara — Portfolio Site</title>
   </head>
   <body>
+    <div id="page-loader">
+      <div class="loader-container">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+      </div>
+    </div>
+
     <header class="header" id="" id>
       <div class="header__container">
         <h2>CodeBM</h2>
@@ -24,9 +34,14 @@
       <!-- ================ Home ============== -->
       <section class="snap-section" id="home">
         <div class="home__container">
-          <p>👋Hey, I'm</p>
+          <p><span class="wave-hand">👋</span>Hey, I'm</p>
           <h2>Brian Mara</h2>
-          <div class="role">
+          <div
+            class="role"
+            data-aos="fade-down"
+            data-aos-delay="2500"
+            data-aos-duration="1000"
+          >
             <span class="typed__text"></span>
           </div>
           <div class="location__container">
@@ -38,21 +53,39 @@
             <p class="location">Philippines</p>
           </div>
           <div class="cta">
-            <a href="#projects" class="cta-btn">
+            <a
+              href="#projects"
+              class="cta-btn"
+              data-aos="fade-right"
+              data-aos-delay="2500"
+              data-aos-duration="1000"
+            >
               View My Projects
               <iconify-icon
                 icon="mdi:folder-open"
                 class="cta-icon"
               ></iconify-icon>
             </a>
-            <a href="/resume.pdf" class="cta-btn secondary" download>
+            <a
+              href="/resume.pdf"
+              class="cta-btn secondary"
+              data-aos="fade-left"
+              data-aos-delay="2500"
+              data-aos-duration="1000"
+              download
+            >
               Download Resume
               <iconify-icon icon="mdi:download" class="cta-icon"></iconify-icon>
             </a>
           </div>
           <div class="socials__container">
             <ul>
-              <li class="social__links">
+              <li
+                class="social__links"
+                data-aos="fade-down"
+                data-aos-delay="2500"
+                data-aos-duration="1000"
+              >
                 <a href="#" class="linkedin">
                   <iconify-icon
                     icon="jam:linkedin"
@@ -61,7 +94,12 @@
                   ></iconify-icon>
                 </a>
               </li>
-              <li class="social__links">
+              <li
+                class="social__links"
+                data-aos="fade-down"
+                data-aos-delay="2600"
+                data-aos-duration="1000"
+              >
                 <a href="#" class="facebook">
                   <iconify-icon
                     icon="icomoon-free:facebook"
@@ -70,7 +108,12 @@
                   ></iconify-icon>
                 </a>
               </li>
-              <li class="social__links">
+              <li
+                class="social__links"
+                data-aos="fade-down"
+                data-aos-delay="2700"
+                data-aos-duration="1000"
+              >
                 <a href="#" class="github">
                   <iconify-icon
                     icon="tabler:brand-github-filled"
@@ -88,7 +131,14 @@
       <section class="snap-section" id="about">
         <div class="about-container">
           <h2>A Bit About Me</h2>
-          <div class="about-card">
+          <div
+            class="about-card aos"
+            data-aos="flip-up"
+            data-aos-duration="1000"
+            data-aos-anchor-placement="top-center"
+            data-aos-offset="200"
+            data-aos-delay="50"
+          >
             <div class="profile">
               <div class="border-top-eraser"></div>
               <p>Profile</p>
@@ -112,7 +162,7 @@
         <div class="services-container">
           <h2>What I do?</h2>
           <div class="card-container">
-            <div class="card">
+            <div class="card aos" data-aos="zoom-in">
               <iconify-icon
                 class="icon"
                 icon="mdi:web-check"
@@ -126,7 +176,7 @@
               </p>
             </div>
 
-            <div class="card">
+            <div class="card aos" data-aos="zoom-in">
               <iconify-icon
                 class="icon"
                 icon="iconoir:design-nib-solid"
@@ -140,7 +190,7 @@
               </p>
             </div>
 
-            <div class="card">
+            <div class="card aos" data-aos="zoom-in">
               <iconify-icon
                 class="icon"
                 icon="famicons:hardware-chip-sharp"
@@ -162,7 +212,7 @@
         <div class="techstack-container">
           <h2>Technologies I Work With!</h2>
           <div class="skill-container">
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon
                 class="icon"
                 icon="material-icon-theme:figma"
@@ -170,54 +220,54 @@
               <p>Figma</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon
                 icon="vscode-icons:file-type-js-official"
               ></iconify-icon>
               <p>JavaScript</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="material-icon-theme:vue"></iconify-icon>
               <p>Vue</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="material-icon-theme:react"></iconify-icon>
               <p>React</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="devicon:tailwindcss"></iconify-icon>
               <p>Tailwind</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="devicon:php"></iconify-icon>
               <p>php</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="material-icon-theme:laravel"></iconify-icon>
               <p>Laravel</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="skill-icons:wordpress"></iconify-icon>
               <p>WordPress</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="vscode-icons:file-type-mysql"></iconify-icon>
               <p>MySQL</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="material-icon-theme:docker"></iconify-icon>
               <p>Docker</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon
                 icon="streamline-logos:c-language-logo-solid"
                 style="color: #1553ca"
@@ -225,12 +275,12 @@
               <p>C</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon icon="skill-icons:arduino"></iconify-icon>
               <p>Arduino</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon
                 icon="simple-icons:stmicroelectronics"
                 style="color: #1553ca"
@@ -238,11 +288,11 @@
               <p>STM</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <p>NodeMCU</p>
             </div>
 
-            <div class="skill-card">
+            <div class="skill-card aos" data-aos="zoom-in">
               <iconify-icon
                 icon="akar-icons:github-fill"
                 style="color: #fff"
@@ -564,7 +614,11 @@
         <div class="contact-container">
           <h2>Let's Work Together!</h2>
           <div class="contact-card">
-            <div class="contact-info">
+            <div
+              class="contact-info aos"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
               <h3>Find me ↴</h3>
               <div class="contact-info-item">
                 <iconify-icon
@@ -588,7 +642,11 @@
               </div>
             </div>
 
-            <form class="contact-form">
+            <form
+              class="contact-form aos"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
               <input type="text" placeholder="Full Name" required />
               <input type="email" placeholder="Your Email" required />
 
@@ -747,79 +805,7 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
-
-    <script>
-      // Smooth scrolling for anchor links
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".nav-link");
-
-      const scrollContainer = document.querySelector(".scroll-container");
-
-      scrollContainer.addEventListener("scroll", () => {
-        let current = "";
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-
-          // console.log("sectionTop:", sectionTop);
-          // console.log("sectionHeight:", sectionHeight);
-          // console.log("Scroll Container ScrollY:", scrollContainer.scrollY);
-
-          if (scrollContainer.scrollTop >= sectionTop - sectionHeight / 2) {
-            current = section.getAttribute("id");
-            // console.log("Current Section:", current);
-          }
-        });
-
-        navLinks.forEach((link) => {
-          const icon = link.querySelector("iconify-icon");
-          const defaultIcon = link.getAttribute("data-default-icon");
-          const activeIcon = link.getAttribute("data-active-icon");
-
-          if (link.getAttribute("href").includes(current)) {
-            link.classList.add("active");
-            if (icon) icon.setAttribute("icon", activeIcon);
-          } else {
-            link.classList.remove("active");
-            if (icon) icon.setAttribute("icon", defaultIcon);
-          }
-        });
-      });
-
-      //Typing Effect
-
-      var typingEffect = new Typed(".typed__text", {
-        strings: [
-          "Full-stack Developer",
-          "Computer Engineer",
-          "UI/UX Designer",
-        ],
-
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 80,
-        backDelay: 2000,
-      });
-
-      //Glowing effect when hover
-      document.querySelectorAll(".project-card").forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          card.style.background = `radial-gradient(
-      600px circle at ${x}px ${y}px,
-      rgba(165, 113, 255, 0.2),
-      transparent 60%
-    )`;
-        });
-
-        card.addEventListener("mouseleave", () => {
-          card.style.background = "var(--card-color)";
-        });
-      });
-    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
