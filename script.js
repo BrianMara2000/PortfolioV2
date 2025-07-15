@@ -98,3 +98,39 @@ if (window.innerWidth > 768) {
     });
   });
 }
+
+//Watch demo by opening modal
+document.querySelectorAll(".video-trigger").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const videoSrc = this.getAttribute("data-video");
+    const orientation = this.getAttribute("data-orientation");
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("videoPlayer");
+
+    video.querySelector("source").setAttribute("src", videoSrc);
+    video.load();
+    if (orientation === "landscape") {
+      modal.style.aspectRatio = "16 / 9";
+    } else {
+      modal.style.aspectRatio = "9 / 16";
+    }
+    modal.style.display = "flex";
+  });
+});
+
+function closeModal() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("videoPlayer");
+  modal.style.display = "none";
+  video.pause();
+}
+
+// ✅ Close on outside click
+window.addEventListener("click", function (e) {
+  const modal = document.getElementById("videoModal");
+  const content = document.querySelector(".modal-content");
+  if (e.target === modal) {
+    closeModal();
+  }
+});

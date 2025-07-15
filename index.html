@@ -54,7 +54,7 @@
           </div>
           <div class="cta">
             <a
-              href="#projects"
+              href="#project"
               class="cta-btn"
               data-aos="fade-right"
               data-aos-delay="2500"
@@ -316,37 +316,6 @@
                 <div class="project-card">
                   <div class="image-holder">
                     <img
-                      src="assets/img/desktop.png"
-                      alt="Project Screenshot"
-                    />
-                  </div>
-
-                  <p class="project-title">Portfolio V2</p>
-
-                  <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                  </div>
-
-                  <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
-                      <iconify-icon
-                        icon="mdi:code"
-                        width="24"
-                        height="24"
-                        style="color: #fff"
-                      ></iconify-icon>
-                      Code
-                    </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
-                    </a>
-                  </div>
-                </div>
-                <div class="project-card">
-                  <div class="image-holder">
-                    <img
                       src="assets/img/ecommerce.png"
                       alt="Project Screenshot"
                     />
@@ -364,7 +333,11 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
+                    <a
+                      href="https://github.com/BrianMara2000/Ecommerce-Website"
+                      target="_blank"
+                      class="code-btn"
+                    >
                       <iconify-icon
                         icon="mdi:code"
                         width="24"
@@ -373,7 +346,13 @@
                       ></iconify-icon>
                       Code
                     </a>
-                    <a href="#" target="_blank" class="live-btn">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="live-btn disabled"
+                      aria-disabled="true"
+                      title="Demo not available yet"
+                    >
                       <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
                     </a>
                   </div>
@@ -396,7 +375,11 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
+                    <a
+                      href="https://github.com/BrianMara2000/Task-Management-System"
+                      target="_blank"
+                      class="code-btn"
+                    >
                       <iconify-icon
                         icon="mdi:code"
                         width="24"
@@ -405,40 +388,15 @@
                       ></iconify-icon>
                       Code
                     </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
-                    </a>
-                  </div>
-                </div>
-
-                <div class="project-card">
-                  <div class="image-holder">
-                    <img
-                      src="assets/img/expenseTracker.png"
-                      alt="Project Screenshot"
-                    />
-                  </div>
-
-                  <p class="project-title">Expense Tracker</p>
-
-                  <div class="tags">
-                    <span>HTML</span>
-                    <span>TailwindCSS</span>
-                    <span>Vue</span>
-                  </div>
-
-                  <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
-                      <iconify-icon
-                        icon="mdi:code"
-                        width="24"
-                        height="24"
-                        style="color: #fff"
-                      ></iconify-icon>
-                      Code
-                    </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="live-btn disabled"
+                      aria-disabled="true"
+                      title="Demo not available yet"
+                    >
+                      <iconify-icon icon="mdi:open-in-new"></iconify-icon>
+                      <p>Demo</p>
                     </a>
                   </div>
                 </div>
@@ -462,7 +420,7 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
+                    <!-- <a href="#" target="_blank" class="code-btn">
                       <iconify-icon
                         icon="mdi:code"
                         width="24"
@@ -470,12 +428,23 @@
                         style="color: #fff"
                       ></iconify-icon>
                       Code
-                    </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
-                    </a>
+                    </a> -->
+                    <button
+                      type="button"
+                      target="_blank"
+                      class="live-btn video-trigger"
+                      data-orientation="landscape"
+                      data-video="assets/videos/Traffic Light STM32.mp4"
+                      onclick="openModal('tma-modal')"
+                    >
+                      <iconify-icon
+                        icon="mdi:play-circle-outline"
+                      ></iconify-icon>
+                      <p>Demo</p>
+                    </button>
                   </div>
                 </div>
+
                 <div class="project-card">
                   <div class="image-holder">
                     <img
@@ -493,7 +462,7 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
+                    <!-- <a href="#" target="_blank" class="code-btn">
                       <iconify-icon
                         icon="mdi:code"
                         width="24"
@@ -501,10 +470,18 @@
                         style="color: #fff"
                       ></iconify-icon>
                       Code
-                    </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
-                    </a>
+                    </a> -->
+                    <button
+                      type="button"
+                      class="live-btn video-trigger"
+                      data-orientation="portrait"
+                      data-video="assets/videos/Traffic Light Arduino.mp4"
+                    >
+                      <iconify-icon
+                        icon="mdi:play-circle-outline"
+                      ></iconify-icon>
+                      <p>Demo</p>
+                    </button>
                   </div>
                 </div>
 
@@ -525,7 +502,7 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
+                    <!-- <a href="#" target="_blank" class="code-btn">
                       <iconify-icon
                         icon="mdi:code"
                         width="24"
@@ -533,10 +510,18 @@
                         style="color: #fff"
                       ></iconify-icon>
                       Code
-                    </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
-                    </a>
+                    </a> -->
+                    <button
+                      type="button"
+                      class="live-btn video-trigger"
+                      data-orientation="portrait"
+                      data-video="assets/videos/"
+                    >
+                      <iconify-icon
+                        icon="mdi:play-circle-outline"
+                      ></iconify-icon>
+                      <p>Demo</p>
+                    </button>
                   </div>
                 </div>
 
@@ -556,7 +541,7 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
+                    <!-- <a href="#" target="_blank" class="code-btn">
                       <iconify-icon
                         icon="mdi:code"
                         width="24"
@@ -564,10 +549,18 @@
                         style="color: #fff"
                       ></iconify-icon>
                       Code
-                    </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
-                    </a>
+                    </a> -->
+                    <button
+                      type="button"
+                      class="live-btn video-trigger"
+                      data-orientation="portrait"
+                      data-video="assets/videos/Line Follower Robot.mp4"
+                    >
+                      <iconify-icon
+                        icon="mdi:play-circle-outline"
+                      ></iconify-icon>
+                      <p>Demo</p>
+                    </button>
                   </div>
                 </div>
 
@@ -589,7 +582,7 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <a href="#" target="_blank" class="code-btn">
+                    <!-- <a href="#" target="_blank" class="code-btn">
                       <iconify-icon
                         icon="mdi:code"
                         width="24"
@@ -597,10 +590,18 @@
                         style="color: #fff"
                       ></iconify-icon>
                       Code
-                    </a>
-                    <a href="#" target="_blank" class="live-btn">
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
-                    </a>
+                    </a> -->
+                    <button
+                      type="button"
+                      class="live-btn video-trigger"
+                      data-orientation="landscape"
+                      data-video="assets/videos/Traffic Light (No MCU).mp4"
+                    >
+                      <iconify-icon
+                        icon="mdi:play-circle-outline"
+                      ></iconify-icon>
+                      <p>Demo</p>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -716,7 +717,6 @@
             height="20"
             style="color: #fff"
           ></iconify-icon>
-          <!-- <iconify-icon icon="majesticons:home" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Home</span>
         </a>
         <a
@@ -732,7 +732,6 @@
             height="20"
             style="color: #fff"
           ></iconify-icon>
-          <!-- <iconify-icon icon="material-symbols:person-rounded" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">About</span>
         </a>
         <a
@@ -748,7 +747,6 @@
             height="20"
             style="color: #fff"
           ></iconify-icon>
-          <!-- <iconify-icon icon="fa6-solid:gears" width="31.20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Services</span>
         </a>
         <a
@@ -765,8 +763,6 @@
             height="20"
             style="color: #fff"
           ></iconify-icon>
-          <!-- <iconify-icon
-           id="icon" icon="fluent:toolbox-24-filled" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Skills</span>
         </a>
         <a
@@ -782,7 +778,6 @@
             height="20"
             style="color: #fff"
           ></iconify-icon>
-          <!-- <iconify-icon icon="material-symbols:folder-code-rounded" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Projects</span>
         </a>
         <a
@@ -798,11 +793,20 @@
             height="20"
             style="color: #fff"
           ></iconify-icon>
-          <!-- <iconify-icon icon="ri:chat-3-fill" width="20" height="20"  style="color: #fff"></iconify-icon> -->
           <span class="tooltip">Contact</span>
         </a>
       </nav>
     </main>
+
+    <div class="video-modal" id="videoModal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <video controls autoplay muted id="videoPlayer">
+          <source src="" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
