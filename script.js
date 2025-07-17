@@ -1,6 +1,6 @@
 AOS.init({
   startEvent: "DOMContentLoaded",
-  once: false,
+  once: true,
 });
 
 const aosAnimation = document.querySelectorAll(".aos");
