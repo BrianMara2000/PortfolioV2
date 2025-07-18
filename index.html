@@ -643,23 +643,51 @@
               </div>
             </div>
 
-            <form
-              class="contact-form aos"
-              data-aos="fade-left"
-              data-aos-duration="1000"
-            >
-              <input type="text" placeholder="Full Name" required />
-              <input type="email" placeholder="Your Email" required />
+            <div class="form">
+              <div id="formStatus">
+                <span
+                  class="status-icon"
+                  data-success="gg:check-o"
+                  data-error="mdi:error"
+                >
+                  <iconify-icon
+                    icon="gg:check-o"
+                    style="color: #fff"
+                  ></iconify-icon>
+                </span>
+                <p id="status-message"></p>
+                <span class="close-btn">&times;</span>
+              </div>
 
-              <textarea rows="5" placeholder="Message"></textarea>
-              <button type="submit">
-                Send
-                <iconify-icon
-                  icon="mdi:send"
-                  style="margin-left: 5px"
-                ></iconify-icon>
-              </button>
-            </form>
+              <form
+                id="contact-form"
+                class="contact-form aos"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                novalidate
+              >
+                <input id="name" type="text" placeholder="Full Name" required />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your Email"
+                  required
+                />
+
+                <textarea
+                  id="message"
+                  rows="5"
+                  placeholder="Message"
+                ></textarea>
+                <button class="submit" type="submit">
+                  Send
+                  <iconify-icon
+                    icon="mdi:send"
+                    style="margin-left: 5px"
+                  ></iconify-icon>
+                </button>
+              </form>
+            </div>
           </div>
           <!-- ================ Footer ============== -->
           <footer class="footer">
@@ -810,6 +838,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

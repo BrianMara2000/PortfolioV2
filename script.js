@@ -134,3 +134,61 @@ window.addEventListener("click", function (e) {
     closeModal();
   }
 });
+
+//Contact form using EmailJS
+const serviceID = emailConfig.serviceID;
+const templateID = emailConfig.templateID;
+const publicKey = emailConfig.publicKey;
+
+emailjs.init({ publicKey });
+
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const status = document.getElementById("formStatus");
+    const statusMessage = document.getElementById("status-message");
+    const statusIcon = document.querySelector(".status-icon");
+    const icon = statusIcon.querySelector("iconify-icon");
+    const successIcon = statusIcon.getAttribute("data-success");
+    const errorIcon = statusIcon.getAttribute("data-error");
+
+    if (!name || !email || !message) {
+      status.style.display = "flex";
+      status.style.backgroundColor = "#CB3A3A";
+      statusMessage.textContent = "All fields are required.";
+      icon.setAttribute("icon", errorIcon);
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      status.style.display = "flex";
+      status.style.backgroundColor = "#CB3A3A";
+
+      statusMessage.textContent = "Enter a valid email address.";
+      icon.setAttribute("icon", errorIcon);
+      return;
+    }
+
+    emailjs.sendForm(serviceID, templateID, "#contact-form").then(
+      () => {
+        document.getElementById("formStatus").innerText = "Message sent!";
+        icon.setAttribute("icon", successIcon);
+        status.style.backgroundColor = "green";
+      },
+      (error) => {
+        icon.setAttribute("icon", errorIcon);
+        status.style.backgroundColor = "#CB3A3A";
+
+        document.getElementById("formStatus").innerText =
+          "Failed to send. Try again.";
+        console.error(error);
+      }
+    );
+  });
