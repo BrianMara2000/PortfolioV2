@@ -948,10 +948,13 @@ text-decoration: none;
   font-weight: 500;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: 0.3s;
   font-family: var(--body-font);
+  position: relative;
+  min-width: 100px;
 }
 
 .contact-form button:hover {
@@ -975,11 +978,7 @@ text-decoration: none;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-
-.status-icon iconify-icon {
   font-size: 1.5rem;
-  color: #d9534f;
 }
 
 #status-message {
@@ -993,6 +992,58 @@ text-decoration: none;
   font-size: 1.25rem;
   flex-shrink: 0;
 }
+
+.btn-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  position: relative;
+}
+
+.spinner-blade {
+  width: 2px;
+  height: 6px;
+  background-color: white;
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  transform-origin: center;
+  border-radius: 2px;
+  animation: spin-blade 1s linear infinite;
+}
+
+.spinner-blade:nth-child(1)  { transform: rotate(0deg) translateY(-9px); animation-delay: -0.9167s; }
+.spinner-blade:nth-child(2)  { transform: rotate(30deg) translateY(-9px); animation-delay: -0.8333s; }
+.spinner-blade:nth-child(3)  { transform: rotate(60deg) translateY(-9px); animation-delay: -0.75s; }
+.spinner-blade:nth-child(4)  { transform: rotate(90deg) translateY(-9px); animation-delay: -0.6667s; }
+.spinner-blade:nth-child(5)  { transform: rotate(120deg) translateY(-9px); animation-delay: -0.5833s; }
+.spinner-blade:nth-child(6)  { transform: rotate(150deg) translateY(-9px); animation-delay: -0.5s; }
+.spinner-blade:nth-child(7)  { transform: rotate(180deg) translateY(-9px); animation-delay: -0.4167s; }
+.spinner-blade:nth-child(8)  { transform: rotate(210deg) translateY(-9px); animation-delay: -0.3333s; }
+.spinner-blade:nth-child(9)  { transform: rotate(240deg) translateY(-9px); animation-delay: -0.25s; }
+.spinner-blade:nth-child(10) { transform: rotate(270deg) translateY(-9px); animation-delay: -0.1667s; }
+.spinner-blade:nth-child(11) { transform: rotate(300deg) translateY(-9px); animation-delay: -0.0833s; }
+.spinner-blade:nth-child(12) { transform: rotate(330deg) translateY(-9px); animation-delay: 0s; }
+
+@keyframes spin-blade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 
+#btnSpinner {
+  display: none;
+} */
+
 
 /* #formStatus > span:last-child:hover {
   background-color: #8a8989;

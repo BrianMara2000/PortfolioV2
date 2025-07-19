@@ -142,10 +142,17 @@ const publicKey = emailConfig.publicKey;
 
 emailjs.init({ publicKey });
 
+const btn = document.getElementById("sendBtn");
+const btnLabel = btn.querySelector(".btn-label");
+const btnSpinner = document.getElementById("btnSpinner");
+const closeNotif = document.querySelector(".close-notif");
+
 document
   .getElementById("contact-form")
   .addEventListener("submit", function (e) {
     e.preventDefault();
+    btnLabel.style.display = "none";
+    btnSpinner.style.display = "flex";
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -153,42 +160,57 @@ document
 
     const status = document.getElementById("formStatus");
     const statusMessage = document.getElementById("status-message");
-    const statusIcon = document.querySelector(".status-icon");
-    const icon = statusIcon.querySelector("iconify-icon");
-    const successIcon = statusIcon.getAttribute("data-success");
-    const errorIcon = statusIcon.getAttribute("data-error");
+    const icon = document.querySelector(".status-icon");
 
     if (!name || !email || !message) {
+      btnLabel.style.display = "flex";
+      btnSpinner.style.display = "none";
+
       status.style.display = "flex";
       status.style.backgroundColor = "#CB3A3A";
       statusMessage.textContent = "All fields are required.";
-      icon.setAttribute("icon", errorIcon);
+      icon.setAttribute("icon", "mdi:error");
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
+      btnLabel.style.display = "flex";
+      btnSpinner.style.display = "none";
+
       status.style.display = "flex";
       status.style.backgroundColor = "#CB3A3A";
 
       statusMessage.textContent = "Enter a valid email address.";
-      icon.setAttribute("icon", errorIcon);
+      icon.setAttribute("icon", "mdi:error");
       return;
     }
 
     emailjs.sendForm(serviceID, templateID, "#contact-form").then(
       () => {
-        document.getElementById("formStatus").innerText = "Message sent!";
-        icon.setAttribute("icon", successIcon);
+        btnLabel.style.display = "flex";
+        btnSpinner.style.display = "none";
+
+        status.style.display = "flex";
+        statusMessage.innerText = "Message sent!";
+        icon.setAttribute("icon", "gg:check-o");
         status.style.backgroundColor = "green";
+
+        document.getElementById("contact-form").reset();
       },
       (error) => {
-        icon.setAttribute("icon", errorIcon);
+        btnLabel.style.display = "flex";
+        btnSpinner.style.display = "none";
+
+        icon.setAttribute("icon", "mdi:error");
         status.style.backgroundColor = "#CB3A3A";
 
-        document.getElementById("formStatus").innerText =
-          "Failed to send. Try again.";
+        statusMessage.innerText = "Failed to send. Try again.";
         console.error(error);
       }
     );
   });
+
+closeNotif.addEventListener("click", () => {
+  document.getElementById("formStatus").style.display = "none";
+});

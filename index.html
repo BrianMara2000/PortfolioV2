@@ -645,18 +645,14 @@
 
             <div class="form">
               <div id="formStatus">
-                <span
+                <iconify-icon
                   class="status-icon"
-                  data-success="gg:check-o"
-                  data-error="mdi:error"
-                >
-                  <iconify-icon
-                    icon="gg:check-o"
-                    style="color: #fff"
-                  ></iconify-icon>
-                </span>
+                  icon="gg:check-o"
+                  style="color: #fff"
+                ></iconify-icon>
+
                 <p id="status-message"></p>
-                <span class="close-btn">&times;</span>
+                <span class="close-notif">&times;</span>
               </div>
 
               <form
@@ -666,10 +662,17 @@
                 data-aos-duration="1000"
                 novalidate
               >
-                <input id="name" type="text" placeholder="Full Name" required />
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                />
                 <input
                   id="email"
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   required
                 />
@@ -678,13 +681,32 @@
                   id="message"
                   rows="5"
                   placeholder="Message"
+                  name="message"
                 ></textarea>
-                <button class="submit" type="submit">
-                  Send
-                  <iconify-icon
-                    icon="mdi:send"
-                    style="margin-left: 5px"
-                  ></iconify-icon>
+                <button id="sendBtn" type="submit">
+                  <span class="btn-label">
+                    <span>Send</span>
+                    <iconify-icon
+                      icon="mdi:send"
+                      style="color: #fff"
+                    ></iconify-icon>
+                  </span>
+
+                  <!-- Spinner -->
+                  <div class="spinner center" id="btnSpinner">
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                  </div>
                 </button>
               </form>
             </div>
