@@ -643,23 +643,73 @@
               </div>
             </div>
 
-            <form
-              class="contact-form aos"
-              data-aos="fade-left"
-              data-aos-duration="1000"
-            >
-              <input type="text" placeholder="Full Name" required />
-              <input type="email" placeholder="Your Email" required />
-
-              <textarea rows="5" placeholder="Message"></textarea>
-              <button type="submit">
-                Send
+            <div class="form">
+              <div id="formStatus">
                 <iconify-icon
-                  icon="mdi:send"
-                  style="margin-left: 5px"
+                  class="status-icon"
+                  icon="gg:check-o"
+                  style="color: #fff"
                 ></iconify-icon>
-              </button>
-            </form>
+
+                <p id="status-message"></p>
+                <span class="close-notif">&times;</span>
+              </div>
+
+              <form
+                id="contact-form"
+                class="contact-form aos"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                novalidate
+              >
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                />
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+
+                <textarea
+                  id="message"
+                  rows="5"
+                  placeholder="Message"
+                  name="message"
+                ></textarea>
+                <button id="sendBtn" type="submit">
+                  <span class="btn-label">
+                    <span>Send</span>
+                    <iconify-icon
+                      icon="mdi:send"
+                      style="color: #fff"
+                    ></iconify-icon>
+                  </span>
+
+                  <!-- Spinner -->
+                  <div class="spinner center" id="btnSpinner">
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                    <div class="spinner-blade"></div>
+                  </div>
+                </button>
+              </form>
+            </div>
           </div>
           <!-- ================ Footer ============== -->
           <footer class="footer">
@@ -810,6 +860,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
