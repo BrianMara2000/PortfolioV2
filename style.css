@@ -804,6 +804,30 @@ grid-row-gap: 1.5rem;
   cursor: not-allowed;
 }
 
+.project-tabs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.tab-btn.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+
 
 /* ============ Contact Section ============ */
 
