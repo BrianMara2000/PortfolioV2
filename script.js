@@ -214,3 +214,27 @@ document
 closeNotif.addEventListener("click", () => {
   document.getElementById("formStatus").style.display = "none";
 });
+
+// Project Tabs
+document.querySelectorAll(".tab-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Remove active class from all buttons
+    document
+      .querySelectorAll(".tab-btn")
+      .forEach((b) => b.classList.remove("active"));
+
+    // Hide all sections
+    document.querySelectorAll(".section").forEach((section) => {
+      section.style.display = "none";
+    });
+
+    // Show selected section and activate button
+    btn.classList.add("active");
+    const target = btn.getAttribute("data-target");
+    document.querySelector(`.${target}`).style.display = "block";
+  });
+});
+
+// Optional: default state
+document.querySelector(".software-section").style.display = "block";
+document.querySelector(".hardware-section").style.display = "none";
