@@ -602,28 +602,25 @@ grid-row-gap: 1.5rem;
   display: none;
 }
 
-.section {
-  position: relative;
-  margin-bottom: 3rem;
-}
 
-.software-title,
-.hardware-title {
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-semi-bold);
-  background: var(--body-color);
-  padding: 1rem 0;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
 
-.software-container,
-.hardware-container {
-  display: flex;
+.software-container{
+  display: grid;
   flex-direction: column;
   gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1rem;
+}
+
+.hardware-container {
+  display: none;
+  flex-direction: column;
+  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 3fr;
+  grid-column-gap: 1rem;
 }
 
 .project-card {
@@ -804,28 +801,93 @@ grid-row-gap: 1.5rem;
   cursor: not-allowed;
 }
 
-.project-tabs {
+/* From Uiverse.io by zanina-yassine */ 
+.tab-container {
+  position: relative;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: var(--card-color);
+  border-radius: 9px;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  padding: 0.5rem 0;
 }
 
-.tab-btn {
-  padding: 0.5rem 1.2rem;
-  border-radius: 8px;
-  border: 2px solid var(--primary-color);
-  background: transparent;
-  color: var(--primary-color);
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.tab-btn.active {
+.indicator {
+  content: "";
+  width: 130px;
   background: var(--primary-color);
-  color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* left: 2px; */
+  z-index: 9;
+  border: 0.5px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 3px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 7px;
+  transition: all 0.2s ease-out;
 }
+
+.tab {
+  width: 130px;
+  height: 28px;
+  position: absolute;
+  z-index: 99;
+  outline: none;
+  opacity: 0;
+}
+
+.tab_label {
+  width: 130px;
+  position: relative;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  /* opacity: 0.6; */
+  color: #fff;
+  cursor: pointer;
+}
+
+.tab-soft:checked ~ .indicator {
+  left: 2px;
+}
+
+.tab-hard:checked ~ .indicator {
+  left: calc(130px + 2px);
+}
+
+.project-card-container {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.project-content {
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.tab-soft:checked ~ .project-card-container .software-container {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-hard:checked ~ .project-card-container .hardware-container {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 
 
