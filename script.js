@@ -216,25 +216,21 @@ closeNotif.addEventListener("click", () => {
 });
 
 // Project Tabs
-document.querySelectorAll(".tab-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // Remove active class from all buttons
-    document
-      .querySelectorAll(".tab-btn")
-      .forEach((b) => b.classList.remove("active"));
+// const tabBtn = document.querySelectorAll(".tab");
+// const softwareSection = document.querySelector(".software-container");
+// const hardwareSection = document.querySelector(".hardware-container");
 
-    // Hide all sections
-    document.querySelectorAll(".section").forEach((section) => {
-      section.style.display = "none";
-    });
+// tabBtn.forEach((btn) => {
+//   btn.addEventListener("click", function () {
+//     tabBtn.forEach((b) => b.classList.remove("active"));
+//     this.classList.add("active");
 
-    // Show selected section and activate button
-    btn.classList.add("active");
-    const target = btn.getAttribute("data-target");
-    document.querySelector(`.${target}`).style.display = "block";
-  });
-});
-
-// Optional: default state
-document.querySelector(".software-section").style.display = "block";
-document.querySelector(".hardware-section").style.display = "none";
+//     if (this.getAttribute("data-target") === "software-section") {
+//       softwareSection.style.display = "grid";
+//       hardwareSection.style.display = "none";
+//     } else {
+//       softwareSection.style.display = "none";
+//       hardwareSection.style.display = "grid";
+//     }
+//   });
+// });
