@@ -78,27 +78,6 @@ var typingEffect = new Typed(".typed__text", {
   backDelay: 2000,
 });
 
-//Glowing effect when hover
-if (window.innerWidth > 768) {
-  document.querySelectorAll(".project-card").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      card.style.background = `radial-gradient(
-          600px circle at ${x}px ${y}px,
-          rgba(165, 113, 255, 0.2),
-          transparent 90%
-        )`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.background = "var(--card-color)";
-    });
-  });
-}
-
 //Watch demo by opening modal
 document.querySelectorAll(".video-trigger").forEach((btn) => {
   btn.addEventListener("click", function (e) {
@@ -215,22 +194,40 @@ closeNotif.addEventListener("click", () => {
   document.getElementById("formStatus").style.display = "none";
 });
 
-// Project Tabs
-// const tabBtn = document.querySelectorAll(".tab");
-// const softwareSection = document.querySelector(".software-container");
-// const hardwareSection = document.querySelector(".hardware-container");
+// Project tabs functionality
+const tabSoft = document.querySelector("#tab1");
+const tabHard = document.querySelector("#tab2");
+const softwareContainer = document.querySelector(".software-container");
+const hardwareContainer = document.querySelector(".hardware-container");
 
-// tabBtn.forEach((btn) => {
-//   btn.addEventListener("click", function () {
-//     tabBtn.forEach((b) => b.classList.remove("active"));
-//     this.classList.add("active");
+function updateTabs() {
+  if (tabSoft.checked) {
+    softwareContainer.style.display = "grid";
+    hardwareContainer.style.display = "none";
+  } else if (tabHard.checked) {
+    softwareContainer.style.display = "none";
+    hardwareContainer.style.display = "grid";
+  }
+}
 
-//     if (this.getAttribute("data-target") === "software-section") {
-//       softwareSection.style.display = "grid";
-//       hardwareSection.style.display = "none";
-//     } else {
-//       softwareSection.style.display = "none";
-//       hardwareSection.style.display = "grid";
-//     }
-//   });
-// });
+tabSoft.addEventListener("change", updateTabs);
+tabHard.addEventListener("change", updateTabs);
+
+updateTabs();
+
+//Glowing effect when hover
+const cards = document.querySelectorAll(".project-card");
+const wrappers = document.querySelectorAll(".project-content");
+
+wrappers.forEach((wrapper) => {
+  wrapper.addEventListener("mousemove", function ($event) {
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const x = $event.clientX - rect.left;
+      const y = $event.clientY - rect.top;
+
+      card.style.setProperty("--xPos", `${x}px`);
+      card.style.setProperty("--yPos", `${y}px`);
+    });
+  });
+});
