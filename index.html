@@ -307,13 +307,26 @@
       <section class="snap-section" id="project">
         <div class="project-container">
           <h2>Featured Project</h2>
+          <div class="tab-container">
+            <input
+              type="radio"
+              name="tab"
+              id="tab1"
+              class="tab tab-soft"
+              checked
+            />
+            <label class="tab_label" for="tab1">Software</label>
+
+            <input type="radio" name="tab" id="tab2" class="tab tab-hard" />
+            <label class="tab_label" for="tab2">Hardware</label>
+
+            <div class="indicator"></div>
+          </div>
 
           <div class="project-card-container">
-            <div class="section software-section">
-              <p class="software-title">Software</p>
-
-              <div class="software-container">
-                <div class="project-card">
+            <div class="project-content software-container">
+              <div class="project-card">
+                <div class="card-content">
                   <div class="image-holder">
                     <img
                       src="assets/img/ecommerce.png"
@@ -353,12 +366,15 @@
                       aria-disabled="true"
                       title="Demo not available yet"
                     >
-                      <iconify-icon icon="mdi:open-in-new"></iconify-icon> Demo
+                      <iconify-icon icon="mdi:open-in-new"></iconify-icon>
+                      Demo
                     </a>
                   </div>
                 </div>
+              </div>
 
-                <div class="project-card">
+              <div class="project-card">
+                <div class="card-content">
                   <div class="image-holder">
                     <img src="assets/img/tma.png" alt="Project Screenshot" />
                   </div>
@@ -403,10 +419,9 @@
               </div>
             </div>
 
-            <div class="section hardware-section">
-              <p class="hardware-title">Hardware</p>
-              <div class="hardware-container">
-                <div class="project-card">
+            <div class="project-content hardware-container">
+              <div class="project-card">
+                <div class="card-content">
                   <div class="image-holder">
                     <img src="assets/img/stmTL.png" alt="Project Screenshot" />
                   </div>
@@ -420,15 +435,6 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <!-- <a href="#" target="_blank" class="code-btn">
-                      <iconify-icon
-                        icon="mdi:code"
-                        width="24"
-                        height="24"
-                        style="color: #fff"
-                      ></iconify-icon>
-                      Code
-                    </a> -->
                     <button
                       type="button"
                       target="_blank"
@@ -444,8 +450,10 @@
                     </button>
                   </div>
                 </div>
+              </div>
 
-                <div class="project-card">
+              <div class="project-card">
+                <div class="card-content">
                   <div class="image-holder">
                     <img
                       src="assets/img/ArduinoTL.png"
@@ -462,15 +470,6 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <!-- <a href="#" target="_blank" class="code-btn">
-                      <iconify-icon
-                        icon="mdi:code"
-                        width="24"
-                        height="24"
-                        style="color: #fff"
-                      ></iconify-icon>
-                      Code
-                    </a> -->
                     <button
                       type="button"
                       class="live-btn video-trigger"
@@ -484,8 +483,10 @@
                     </button>
                   </div>
                 </div>
+              </div>
 
-                <div class="project-card">
+              <div class="project-card">
+                <div class="card-content">
                   <div class="image-holder">
                     <img
                       src="assets/img/waterDispenser.png"
@@ -502,15 +503,6 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <!-- <a href="#" target="_blank" class="code-btn">
-                      <iconify-icon
-                        icon="mdi:code"
-                        width="24"
-                        height="24"
-                        style="color: #fff"
-                      ></iconify-icon>
-                      Code
-                    </a> -->
                     <button
                       type="button"
                       class="live-btn video-trigger"
@@ -524,8 +516,10 @@
                     </button>
                   </div>
                 </div>
+              </div>
 
-                <div class="project-card">
+              <div class="project-card">
+                <div class="card-content">
                   <div class="image-holder">
                     <img src="assets/img/robot.png" alt="Project Screenshot" />
                   </div>
@@ -541,15 +535,6 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <!-- <a href="#" target="_blank" class="code-btn">
-                      <iconify-icon
-                        icon="mdi:code"
-                        width="24"
-                        height="24"
-                        style="color: #fff"
-                      ></iconify-icon>
-                      Code
-                    </a> -->
                     <button
                       type="button"
                       class="live-btn video-trigger"
@@ -563,8 +548,10 @@
                     </button>
                   </div>
                 </div>
+              </div>
 
-                <div class="project-card">
+              <div class="project-card">
+                <div class="card-content">
                   <div class="image-holder">
                     <img
                       src="assets/img/tlpNoMCU.png"
@@ -582,15 +569,6 @@
                   </div>
 
                   <div class="redirect-buttons">
-                    <!-- <a href="#" target="_blank" class="code-btn">
-                      <iconify-icon
-                        icon="mdi:code"
-                        width="24"
-                        height="24"
-                        style="color: #fff"
-                      ></iconify-icon>
-                      Code
-                    </a> -->
                     <button
                       type="button"
                       class="live-btn video-trigger"
