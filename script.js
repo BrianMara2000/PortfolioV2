@@ -231,3 +231,205 @@ wrappers.forEach((wrapper) => {
     });
   });
 });
+
+async function fetchContributions() {
+  try {
+    const res = await fetch("/.netlify/functions/github-contributions");
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+
+    const json = await res.json();
+    return json.data.user.contributionsCollection.contributionCalendar.weeks;
+  } catch (err) {
+    console.error("❌ Error:", err);
+    return [];
+  }
+}
+
+function transformToMatrixData(weeks) {
+  const data = [];
+  weeks.forEach((week, x) => {
+    week.contributionDays.forEach((day) => {
+      data.push({
+        x,
+        y: new Date(day.date).getDay(), // 0 = Sunday
+        v: day.contributionCount,
+        date: day.date, // include date for tooltip
+      });
+    });
+  });
+  return data;
+}
+
+function getTotalContributions(weeks) {
+  return weeks.reduce((total, week) => {
+    return (
+      total +
+      week.contributionDays.reduce((sum, day) => sum + day.contributionCount, 0)
+    );
+  }, 0);
+}
+
+async function drawContributionChart() {
+  const weeks = await fetchContributions();
+  const matrixData = transformToMatrixData(weeks);
+  const totalContributions = getTotalContributions(weeks);
+
+  const centeredMonthLabelsPlugin = {
+    id: "centeredMonthLabels",
+    afterDraw(chart) {
+      const {
+        ctx,
+        chartArea: { top },
+        scales: { x },
+        config: { data },
+      } = chart;
+
+      const weeks = data.weeks;
+      if (!weeks || !weeks.length) return;
+
+      ctx.save();
+      ctx.fillStyle = "#888C91"; // light gray text
+      ctx.font = "12px sans-serif";
+      ctx.textAlign = "center";
+
+      let lastMonth = "";
+      let monthStartIndex = 0;
+
+      for (let i = 0; i < weeks.length; i++) {
+        const date = new Date(weeks[i].contributionDays[0].date);
+        const month = date.toLocaleString("default", { month: "short" });
+
+        if (month !== lastMonth) {
+          if (lastMonth !== "") {
+            const midIndex = (i + monthStartIndex - 1) / 2;
+            const midX = x.getPixelForValue(midIndex);
+            ctx.fillText(lastMonth, midX, top - 5);
+          }
+          lastMonth = month;
+          monthStartIndex = i;
+        }
+      }
+
+      // Final month
+      const midIndex = (weeks.length + monthStartIndex - 1) / 2;
+      const midX = x.getPixelForValue(midIndex);
+      ctx.fillText(lastMonth, midX, top - 5);
+
+      ctx.restore();
+    },
+  };
+
+  const customDayLabelsPlugin = {
+    id: "customDayLabels",
+    afterDraw(chart) {
+      const {
+        ctx,
+        chartArea: { left, top, bottom },
+        scales: { y },
+      } = chart;
+
+      ctx.save();
+      ctx.font = "12px sans-serif";
+      ctx.fillStyle = "#888C91";
+      ctx.textAlign = "right";
+      ctx.textBaseline = "middle";
+
+      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+      y.ticks.forEach((tick, index) => {
+        const label = days[tick.value];
+        if (["Mon", "Wed", "Fri"].includes(label)) {
+          const yPos = y.getPixelForValue(tick.value);
+          ctx.fillText(label, left + 40, yPos); // -40 = distance from chart
+        }
+      });
+
+      ctx.restore();
+    },
+  };
+
+  Chart.register(centeredMonthLabelsPlugin, customDayLabelsPlugin);
+
+  const ctx = document.getElementById("contributionChart").getContext("2d");
+
+  const totalContributionElement = document.querySelector(
+    ".total-contribution"
+  );
+  totalContributionElement.textContent = `${totalContributions}   contributions in the last year`;
+
+  new Chart(ctx, {
+    type: "matrix",
+    data: {
+      weeks: weeks, // Store weeks for plugin access
+      datasets: [
+        {
+          label: "GitHub Contributions",
+          data: matrixData,
+          backgroundColor: (ctx) => {
+            const count = ctx.raw.v;
+            if (count === 0) return "#161b22";
+            if (count < 5) return "#0e4429";
+            if (count < 10) return "#006d32";
+            if (count < 20) return "#26a641";
+            return "#39d353";
+          },
+          width: ({ chart }) => (chart.chartArea || {}).width / 53 - 1,
+          height: ({ chart }) => (chart.chartArea || {}).height / 7 - 1,
+          borderRadius: 2,
+          borderWidth: 2,
+          borderColor: "#0B111E",
+        },
+      ],
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      aspectRatio: 6,
+      borderColor: "#9A9494",
+      layout: {
+        padding: {
+          top: 10,
+        },
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: () => "",
+            label: (ctx) => {
+              const weekData = ctx.chart.config.data.weeks[ctx.raw.x];
+              const date = new Date(weekData.contributionDays[ctx.raw.y].date);
+
+              return `${date.toDateString()}: ${ctx.raw.v} contributions`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: {
+          min: 0,
+          max: 52,
+          offset: true,
+          ticks: {
+            display: false,
+          },
+          grid: {
+            display: false,
+          },
+          position: "top",
+        },
+        y: {
+          offset: true,
+          ticks: {
+            display: false, // hide default ticks
+          },
+          grid: {
+            display: false,
+          },
+        },
+      },
+    },
+  });
+}
+
+drawContributionChart();
