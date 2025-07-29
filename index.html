@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-
     <title>Brian Mara — Portfolio Site</title>
   </head>
   <body>
@@ -23,11 +22,7 @@
     <header class="header" id="" id>
       <div class="header__container">
         <h2>CodeBM</h2>
-        <iconify-icon
-          icon="tabler:sun-filled"
-          width="24"
-          height="24"
-        ></iconify-icon>
+        <a href="#contact" class="cta-btn secondary"> Contact Me </a>
       </div>
     </header>
     <main class="scroll-container">
@@ -67,7 +62,7 @@
               ></iconify-icon>
             </a>
             <a
-              href="/resume.pdf"
+              href="/assets/resume/Brian_Mara-FullStack_Developer_Resume.pdf"
               class="cta-btn secondary"
               data-aos="fade-left"
               data-aos-delay="2500"
@@ -129,79 +124,90 @@
 
       <!-- ================ About ============== -->
       <section class="snap-section" id="about">
-        <div class="about-container">
-          <h2>A Bit About Me</h2>
-          <div
-            class="about-card aos"
-            data-aos="flip-up"
-            data-aos-duration="1000"
-            data-aos-anchor-placement="top-center"
-            data-aos-offset="200"
-            data-aos-delay="50"
-          >
-            <div class="profile">
-              <div class="border-top-eraser"></div>
-              <p>Profile</p>
-            </div>
+        <div class="about-container aos" data-aos="fade-right">
+          <div class="about-header">
             <div class="profile-avatar">
-              <img src="assets/img/1707639327089.jpg" alt="" />
+              <img src="assets/img/1707639327089.jpg" alt="Profile Avatar" />
             </div>
+            <div class="profile-info">
+              <h2>Brian Mara</h2>
+
+              <p class="profile-bio">
+                Computer Engineer • Full-Stack Developer • UI/UX Designer
+              </p>
+              <a href="#contact" class="about-cta">Let’s Work Together</a>
+              <p class="address">
+                <iconify-icon icon="fluent:location-48-regular"></iconify-icon>
+                Bohol, Philippines
+              </p>
+              <p class="email">
+                <iconify-icon icon="streamline-cyber:email-2"></iconify-icon>
+                brianmara123@gmail.com
+              </p>
+            </div>
+          </div>
+
+          <div class="about-body">
             <p class="about-content">
-              <span>Computer engineer</span> skilled in
-              <span>full-stack development</span> and <span>UI/UX design</span>.
-              Focused on creating clean, efficient, and user-centered digital
+              Hi there 👋,
+              <br />
+              <br />
+              I am a <strong><i>Computer engineer </i></strong> skilled in
+              <strong><i>full-stack development</i></strong> and
+              <strong><i>UI/UX design</i></strong
+              >. Focused on creating clean, efficient, and user-centered digital
               solutions for both web and hardware-based systems.
             </p>
-            <a href="#contact" class="cta">Let's Work Together</a>
-          </div>
-        </div>
-      </section>
 
-      <!-- ================ Services ============== -->
-      <section class="snap-section" id="services">
-        <div class="services-container">
-          <h2>What I do?</h2>
-          <div class="card-container">
-            <div class="card aos" data-aos="zoom-in">
-              <iconify-icon
-                class="icon"
-                icon="mdi:web-check"
-                width="35"
-                height="35"
-              ></iconify-icon>
-              <h2>Web Development</h2>
-              <p>
-                Building lightning-fast, mobile-ready websites that don’t just
-                look good — they work flawlessly.
-              </p>
+            <hr class="modern-divider" />
+            <div class="services-container">
+              <h2>How I can Help</h2>
+              <div class="card-container">
+                <div class="card">
+                  <iconify-icon
+                    class="icon"
+                    icon="mdi:web-check"
+                  ></iconify-icon>
+                  <h2>Web Development</h2>
+                  <p>
+                    Building lightning-fast, mobile-ready websites that don’t
+                    just look good — they work flawlessly.
+                  </p>
+                </div>
+                <div class="card">
+                  <iconify-icon
+                    class="icon"
+                    icon="iconoir:design-nib-solid"
+                  ></iconify-icon>
+                  <h2>UX/UI Design</h2>
+                  <p>
+                    Designing smooth, scroll-worthy interfaces that feel natural
+                    and keep users engaged.
+                  </p>
+                </div>
+                <div class="card">
+                  <iconify-icon
+                    class="icon"
+                    icon="famicons:hardware-chip-sharp"
+                  ></iconify-icon>
+                  <h2>Embedded System</h2>
+                  <p>
+                    Bridging code and hardware to bring real-world tech ideas to
+                    life.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div class="card aos" data-aos="zoom-in">
-              <iconify-icon
-                class="icon"
-                icon="iconoir:design-nib-solid"
-                width="35"
-                height="35"
-              ></iconify-icon>
-              <h2>UX/UI Design</h2>
-              <p>
-                Designing smooth, scroll-worthy interfaces that feel natural and
-                keep users engaged.
-              </p>
-            </div>
+            <hr class="modern-divider" />
 
-            <div class="card aos" data-aos="zoom-in">
-              <iconify-icon
-                class="icon"
-                icon="famicons:hardware-chip-sharp"
-                width="35"
-                height="35"
-              ></iconify-icon>
-              <h2>Embedded System</h2>
-              <p>
-                Bridging code and hardware to bring real-world tech ideas to
-                life.
-              </p>
+            <div class="github-container">
+              <p>Github Contributions</p>
+
+              <div class="github-calendar">
+                <canvas id="contributionChart"></canvas>
+              </div>
+              <p class="total-contribution"></p>
             </div>
           </div>
         </div>
@@ -343,6 +349,8 @@
                     <span>Laravel</span>
                     <span>MySQL</span>
                     <span>Inertia</span>
+                    <span>Chart.js</span>
+                    <span>Stripe</span>
                   </div>
 
                   <div class="redirect-buttons">
@@ -386,6 +394,7 @@
                     <span>Redux</span>
                     <span>ShadCN</span>
                     <span>TailwindCSS</span>
+                    <span>DndKit</span>
                     <span>Laravel</span>
                     <span>MySQL</span>
                   </div>
@@ -393,6 +402,52 @@
                   <div class="redirect-buttons">
                     <a
                       href="https://github.com/BrianMara2000/Task-Management-System"
+                      target="_blank"
+                      class="code-btn"
+                    >
+                      <iconify-icon
+                        icon="mdi:code"
+                        width="24"
+                        height="24"
+                        style="color: #fff"
+                      ></iconify-icon>
+                      Code
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="live-btn disabled"
+                      aria-disabled="true"
+                      title="Demo not available yet"
+                    >
+                      <iconify-icon icon="mdi:open-in-new"></iconify-icon>
+                      <p>Demo</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <div class="card-content">
+                  <div class="image-holder">
+                    <img
+                      src="assets/img/desktop.png"
+                      alt="Project Screenshot"
+                    />
+                  </div>
+
+                  <p class="project-title">Portfolio V2</p>
+
+                  <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JS</span>
+                    <span>Chart.js</span>
+                  </div>
+
+                  <div class="redirect-buttons">
+                    <a
+                      href="https://github.com/BrianMara2000/PortfolioV2"
                       target="_blank"
                       class="code-btn"
                     >
@@ -475,39 +530,6 @@
                       class="live-btn video-trigger"
                       data-orientation="portrait"
                       data-video="assets/videos/Traffic Light Arduino.mp4"
-                    >
-                      <iconify-icon
-                        icon="mdi:play-circle-outline"
-                      ></iconify-icon>
-                      <p>Demo</p>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="project-card">
-                <div class="card-content">
-                  <div class="image-holder">
-                    <img
-                      src="assets/img/waterDispenser.png"
-                      alt="Project Screenshot"
-                    />
-                  </div>
-
-                  <p class="project-title">Automatic Water Dispenser</p>
-
-                  <div class="tags">
-                    <span>C</span>
-                    <span>Arduino</span>
-                    <span>Sensor Integration</span>
-                  </div>
-
-                  <div class="redirect-buttons">
-                    <button
-                      type="button"
-                      class="live-btn video-trigger"
-                      data-orientation="portrait"
-                      data-video="assets/videos/"
                     >
                       <iconify-icon
                         icon="mdi:play-circle-outline"
@@ -693,37 +715,6 @@
           <footer class="footer">
             <div class="footer-content">
               <p>&copy; 2025 Brian Mara. All rights reserved.</p>
-              <div class="footer-icons">
-                <a
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  aria-label="GitHub"
-                >
-                  <iconify-icon
-                    icon="mdi:github"
-                    width="24"
-                    height="24"
-                  ></iconify-icon>
-                </a>
-                <a
-                  href="https://linkedin.com/in/yourusername"
-                  target="_blank"
-                  aria-label="LinkedIn"
-                >
-                  <iconify-icon
-                    icon="mdi:linkedin"
-                    width="24"
-                    height="24"
-                  ></iconify-icon>
-                </a>
-                <a href="mailto:brianmara123@gmail.com" aria-label="Email">
-                  <iconify-icon
-                    icon="mdi:email"
-                    width="24"
-                    height="24"
-                  ></iconify-icon>
-                </a>
-              </div>
             </div>
           </footer>
         </div>
@@ -761,21 +752,6 @@
             style="color: #fff"
           ></iconify-icon>
           <span class="tooltip">About</span>
-        </a>
-        <a
-          href="#services"
-          data-default-icon="hugeicons:gears"
-          data-active-icon="fa6-solid:gears"
-          class="nav-link"
-          title="Services"
-        >
-          <iconify-icon
-            icon="hugeicons:gears"
-            width="20"
-            height="20"
-            style="color: #fff"
-          ></iconify-icon>
-          <span class="tooltip">Services</span>
         </a>
         <a
           href="#techstack"
@@ -839,6 +815,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Chart.js and Matrix Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@2"></script>
+
     <script src="config.js"></script>
     <script src="script.js"></script>
   </body>
